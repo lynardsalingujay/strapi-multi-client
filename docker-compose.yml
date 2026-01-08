@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:15
-    container_name: bayanbites-postgres
+    container_name: ${BUSINESS_NAME}-postgres
     restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
@@ -17,7 +17,7 @@ services:
 
   strapi:
     image: strapi4-base:v1.0.0
-    container_name: bayanbites-strapi
+    container_name: ${BUSINESS_NAME}-strapi
     restart: unless-stopped
     depends_on:
       postgres:
@@ -82,4 +82,4 @@ services:
 
 networks:
   default:
-    name: bayanbites-net
+    name: ${BUSINESS_NAME}-net
